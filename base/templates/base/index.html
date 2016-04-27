@@ -1,50 +1,62 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
   <head>
     <title>Address Book - {% block title %}{% endblock title %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
   </head>
   <body>
-    {% block header %}
-      <header class="header">
-        <h1>Address Book App</h1>
+
+      {% block header %}
+        <header class="header">
+          <div class="wrapper">
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="btn right">Logout</a>
+            {% endif %}
+            <h1>Address Book App</h1>
+          </div>
+        </header>
+      {% endblock header %}
+      <div class="wrapper">
+      <div class="content-wrapper">
+      {% block body %}
         {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">Logout</a>
+
+          <h2>Contact List</h2>
+
+          {% for contact in contacts %}
+          <div class="contact-item">
+            <a href="/detail/{{ contact.id }}/"> {{ contact.first_name }} {{ contact.last_name }}</a>
+          </div>
+          {% endfor %}
+
+          <hr />
+
+          {% include "base/search_form.html" %}
+
+          <hr />
+
+          <h2>Add a New Contact</h2>
+
+          {% include "base/contact_form.html" %}
+
+        {% else %}
+
+          <h2>Welcome</h2>
+          <p>If you have already registered, please <a href="{% url 'login' %}">login here</a>. Otherwise, you can <a href="{% url 'register' %}">register here</a>.</p>
+
         {% endif %}
-      </header>
-    {% endblock header %}
 
-    {% block body %}
-      {% if user.is_authenticated %}
-        <h2>Contacts</h2>
+      {% endblock body %}
+      </div>
+    </div>
 
-        {% include "base/search_form.html" %}
-
-        <hr />
-
-        {% for contact in contacts %}
-          <a href="/detail/{{ contact.id }}/"> {{ contact.first_name }} {{ contact.last_name }}</a><br />
-        {% endfor %}
-
-        <h2>Add a New Contact</h2>
-
-        {% include "base/contact_form.html" %}
-      {% else %}
-
-        <h2>Welcome</h2>
-
-        <p>If you have already registered, please <a href="{% url 'login' %}">login here</a>. Otherwise, you can <a href="{% url 'register' %}">register here</a>.</p>
-
-      {% endif %}
-
-    {% endblock body %}
-
-    {% block footer %}
-    <footer class="footer">
-      <!-- App built by Todd Kersey -->
-    </footer>
-    {% endblock footer %}
+      {% block footer %}
+      <footer class="footer text-center">
+        App built by Todd Kersey
+      </footer>
+      {% endblock footer %}
   </body>
 </html>
