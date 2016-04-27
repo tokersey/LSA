@@ -1,0 +1,8 @@
+{% if error %}
+    <p>Please submit a search term.</p>
+{% endif %}
+<form id="searchform" action="{% url 'search' %}" method="GET">
+  <label>Search Contacts: </label>
+  <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
+  <input type="submit" value="Search" class="btn btn-submit" />
+</form>

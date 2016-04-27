@@ -1,0 +1,31 @@
+{% extends "base/index.html" %}
+
+{% block title %}Login{% endblock title %}
+
+{% block body %}
+    <h2>Log In to Your Account</h2>
+    <p>Login below if you have already registered. If you are a first time visitor, <a href="{% url 'register' %}">register</a> and create an account.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {% if form.errors %}
+            {% for error in form.non_field_errors %}
+                <div class="form-error-field error">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="row">
+            <label for="id_username">Username</label>
+            {{ form.username }}
+        </div>
+
+        <div class="row">
+            <label for="id_password">Password</label>
+            {{ form.password }}
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Login" class="btn btn-submit">
+        </div>
+    </form>
+{% endblock body %}

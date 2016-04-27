@@ -1,0 +1,33 @@
+{% extends "base/index.html" %}
+
+{% block title %}Contact Details{% endblock title %}
+
+{% block body %}
+
+    <h2>Contact Details</h2>
+
+    <p>
+    <strong>First Name:</strong> {{ contact.first_name }}
+    </p>
+
+    <p>
+    <strong>Last Name:</strong> {{ contact.last_name }}
+    </p>
+
+    <p>
+    <strong>Street Address:</strong> {{ contact.address }}<br />
+    </p>
+
+    <p>
+    <strong>Email:</strong> {{ contact.email }}<br />
+    </p>
+
+    <p>
+    <strong>Phone:</strong> {{ contact.phone }}
+    </p>
+
+    <p>
+        <a href="{% url 'index' %}">Go back to contact list</a> | <a href="/delete/{{ contact.id }}">Delete this contact</a>
+    </p>
+
+{% endblock body %}

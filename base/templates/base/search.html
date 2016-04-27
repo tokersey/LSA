@@ -1,0 +1,30 @@
+{% extends "base/index.html" %}
+
+{% block title %}Search Contacts{% endblock title %}
+
+{% block body %}
+  <h2>Search Contacts</h2>
+  <p>You searched for: {{ query }}</p>
+
+  <h3>Results</h3>
+  {% if contacts %}
+  {% for contact in contacts %}
+  <div class="contact-item">
+    <a href="/detail/{{ contact.id }}/"> {{ contact.first_name }} {{ contact.last_name }}</a>
+  </div>
+  {% endfor %}
+  {% else %}
+    <p>No contacts found for that query.</p>
+  {% endif %}
+
+  <hr />
+
+  {% include "base/search_form.html" %}
+
+  <hr />
+
+  <p>
+    <a href="{% url 'index' %}">Go back to contact list</a>
+  </p>
+
+{% endblock body %}
