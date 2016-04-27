@@ -1,0 +1,8 @@
+<form method="POST" id="form_contact" action="/" class="form-contact">
+    <p><small>* All fields are required.</small></p>
+
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="Add Contact" class="form-contact-submit" />
+</form>

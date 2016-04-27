@@ -1,0 +1,14 @@
+{% extends "base/index.html" %}
+
+{% block title %}Register{% endblock title %}
+
+{% block body %}
+    <h2>Register Your Account</h2>
+    <p>Register for a new account below. If you are already registered, go to the <a href="{% url 'login' %}">login</a> page.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Register" class="simple-form-submit">
+    </form>
+{% endblock body %}
