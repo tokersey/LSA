@@ -1,0 +1,74 @@
+body {
+    background: #f1f1f1;
+    font-family: "helvetica neue";
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 70%;
+}
+
+.content-wrapper {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.right {
+    float: right;
+}
+
+.contact-item{
+    padding: 0 0 10px;
+}
+
+.btn {
+    display: block;
+    padding: 10px;
+    background: #1D92CF;
+    color: #fefefe;
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+}
+
+.btn-submit {
+    margin: 10px 0;
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+    border: 1px solid #888;
+    padding: 5px;
+    width: 200px;
+}
+
+.row {
+    margin: 10px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.header {
+    background: #111;
+    color: #fefefe;
+    overflow: hidden;
+}
+
+label {
+    width: 130px;
+    display: inline-block;
+}
+
+.footer {
+    padding: 50px 0;
+}
+
+a {
+    color: #1D92CF;
+}
+

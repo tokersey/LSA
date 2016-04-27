@@ -1,0 +1,25 @@
+body {
+    background: #f1f1f1;
+    font-family: "helvetica neue";
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 70%;
+}
+
+.content-wrapper {
+}
+
+.right {
+    float: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.footer {
+    background: #111;
+    color: #fefefe;
+}
